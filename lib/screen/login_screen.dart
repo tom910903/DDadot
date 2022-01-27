@@ -39,33 +39,34 @@ class _LoginScreenState extends State<LoginScreen> {
                   color: Colors.amber,
                 ),
                 TextFormField(
-                  key: _formKey,
                   textAlign: TextAlign.center,
                   keyboardType: TextInputType.emailAddress,
-                  validator: (value){
-                      return 'Please enter at least 4 characters';
-                  },
-                  // validator: (strEmail) => EmailValidator.validate(strEmail!) ? null : "Please enter a valid email",
                   onChanged: (value){
-                    _email = value;
+                    setState(() {
+                      _email = value;
+                    });
                   },
                   decoration: InputDecoration(
                     hintText: "user@email.com",
                     hintStyle: TextStyle(
                         color: Colors.grey
                     ),
-                    // errorText: _email.isEmpty && EmailValidator.validate(_email) ? null : "Please enter a valid email",
-                    errorText: _email.isEmpty ? null : "Please enter a valid email",
+                    errorText: _email.isEmpty || EmailValidator.validate(_email) ? null : "Please enter a valid email",
                   ),
                 ),
                 TextFormField(
                   obscureText: true,
-                  textAlign: TextAlign.center,
+                  textAlign: TextAlign.center, onChanged: (value){
+                  setState(() {
+                    _password = value;
+                  });
+                },
                   decoration: InputDecoration(
                     hintText: "password",
                     hintStyle: TextStyle(
                         color: Colors.grey
                     ),
+                    errorText: _password.isEmpty || _password.length > 6 ? null : "Please enter a valid email",
                   ),
                 ),
                 TextButton(
