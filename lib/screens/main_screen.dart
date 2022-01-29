@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:anonymous_forum/widgets/right_drawer.dart';
+import 'package:ddadot/widgets/right_drawer.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({Key? key}) : super(key: key);

@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.anonymous_forum">
+    package="com.example.ddadot">
    <application
-        android:label="anonymous_forum"
+        android:label="ddadot"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

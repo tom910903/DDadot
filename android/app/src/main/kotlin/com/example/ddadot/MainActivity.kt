@@ -1,4 +1,4 @@
-package com.example.anonymous_forum
+package com.example.ddadot
 
 import io.flutter.embedding.android.FlutterActivity
 

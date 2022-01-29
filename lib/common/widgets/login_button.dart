@@ -1,0 +1,48 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+class LoginButton extends StatelessWidget {
+  final Function onPressed;
+  final Color backgroundColor;
+  final String text;
+  final String iconPath;
+  final Color textColor;
+
+  LoginButton({ required this.onPressed,
+    required this.backgroundColor,
+    required this.iconPath,
+    required this.text ,
+    this.textColor = Colors.black});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        height: 40.h,
+        width: double.infinity,
+        padding: EdgeInsets.fromLTRB(12, 5, 12, 5),
+        margin: EdgeInsets.all(5),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+          color: backgroundColor,
+        ),
+        child: Stack(
+          children: [
+            Image.asset(iconPath,
+              fit: BoxFit.fill,
+            ),
+            Center(
+              child: Text(text,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: textColor,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 13.sp,
+                ),
+              ),
+            )
+          ],
+        )
+    );
+  }
+}
