@@ -4,7 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 enum DRAWER_ITEMS{
   PROFILE,
   HOME,
-  MAP,
+  BOOKMARK,
+  MY_POST,
   ALARM,
   SETTINGS,
   MAX
@@ -29,29 +30,30 @@ class DrawerItemModel{
 class RightDrawer extends StatelessWidget {
 
   List<DrawerItemModel> drawerList= [
-    DrawerItemModel("Home",Icons.home,DRAWER_ITEMS.HOME),
-    DrawerItemModel("Map",Icons.map,DRAWER_ITEMS.MAP),
-    DrawerItemModel("Alarm",Icons.notifications,DRAWER_ITEMS.ALARM),
-    DrawerItemModel("Settings",Icons.settings,DRAWER_ITEMS.SETTINGS),
+    DrawerItemModel("홈",Icons.home,DRAWER_ITEMS.HOME),
+    DrawerItemModel("북마크",Icons.bookmark,DRAWER_ITEMS.HOME),
+    DrawerItemModel("내가 작성한 글",Icons.library_books,DRAWER_ITEMS.HOME),
+    DrawerItemModel("알림",Icons.notifications,DRAWER_ITEMS.ALARM),
+    DrawerItemModel("설정",Icons.settings,DRAWER_ITEMS.SETTINGS),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 130.w,
+      width: 180.w,
       color: Colors.white,
       child: ListView.builder(
         padding: const EdgeInsets.all(0),
         itemCount: DRAWER_ITEMS.MAX.index,
         itemBuilder: (BuildContext context, int index) {
-          if (index == 0) return _getHeader();
+          if (index == 0) return _getHeader(context);
           return _getListItem(index - 1);
         },
       )
     );
   }
 
-  _getHeader(){
+  _getHeader(context){
     return GestureDetector(
       onTap: (){
         print('Header');
@@ -59,7 +61,7 @@ class RightDrawer extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.all(12),
         height: 100.h,
-        color: Colors.blue,
+        color: Theme.of(context).colorScheme.primary,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -70,7 +72,7 @@ class RightDrawer extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-            Text('풍덕천동',
+            Text('수지구',
               style: TextStyle(
                 color: Colors.white,
               ),
