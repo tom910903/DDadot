@@ -12,8 +12,8 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   prefs = await SharedPreferences.getInstance();
 
-  // if(prefs.getBool("autoLogin") ?? true){    //TEST CODE
-  if(prefs.getBool("autoLogin") ?? false){
+  if(prefs.getBool("autoLogin") ?? true){    //TEST CODE
+  // if(prefs.getBool("autoLogin") ?? false){
     _firstScreen = MainScreen();
   }
 
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         builder: () => MaterialApp(
           title: 'Flutter Demo',
           theme: ThemeData(
-            primarySwatch: Colors.blue,
+            primarySwatch: Colors.orange,
           ),
           home: _firstScreen,
         )
