@@ -41,14 +41,15 @@ class RightDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 180.w,
-      color: Colors.white,
-      child: ListView.builder(
-        padding: const EdgeInsets.all(0),
-        itemCount: DRAWER_ITEMS.MAX.index,
-        itemBuilder: (BuildContext context, int index) {
-          if (index == 0) return _getHeader(context);
-          return _getListItem(index - 1);
-        },
+      child: Drawer(
+        child: ListView.builder(
+          padding: const EdgeInsets.all(0),
+          itemCount: DRAWER_ITEMS.MAX.index,
+          itemBuilder: (BuildContext context, int index) {
+            if (index == 0) return _getHeader(context);
+            return _getListItem(index - 1);
+          },
+        ),
       )
     );
   }

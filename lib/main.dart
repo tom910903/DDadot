@@ -32,6 +32,19 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.orange,
           ),
+          darkTheme: ThemeData(
+              // scaffoldBackgroundColor: Colors.black,
+              colorScheme: ColorScheme.dark(),
+              appBarTheme: AppBarTheme(
+                backgroundColor: Colors.deepPurple,
+              ),
+            primaryColor: Colors.purple,
+            brightness: Brightness.dark,
+          ),
+          themeMode: ThemeMode.dark, // TEXT CODE
+          // themeMode: ThemeMode.system
+          debugShowCheckedModeBanner: false,
+
           home: _firstScreen,
         )
     );
