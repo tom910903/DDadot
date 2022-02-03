@@ -4,6 +4,7 @@ import 'package:page_view_indicators/circle_page_indicator.dart';
 
 import 'package:ddadot/utils/utils.dart';
 import 'package:ddadot/model/post_madel.dart';
+import 'package:ddadot/screens/comment_screen.dart';
 
 class PostListItem extends StatefulWidget {
   PostListItem({required this.postModel});
@@ -112,8 +113,15 @@ class _PostListItemState extends State<PostListItem> {
                   onPressed: (){},
                 ),
                 TextButton.icon(icon: Icon(Icons.chat_bubble_outline),
-                  label: Text(widget.postModel.chatNum.toString()),
-                  onPressed: (){},
+                  label: Text(widget.postModel.commentNum.toString()),
+                  onPressed: (){
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context){
+                          return CommentScreen(title: widget.postModel.title,);
+                        })
+                    );
+                  },
                 ),
                 Spacer(),
                 IconButton(icon: Icon(Icons.ios_share),
@@ -126,6 +134,6 @@ class _PostListItemState extends State<PostListItem> {
             ),
           ],
         )
-    );;
+    );
   }
 }

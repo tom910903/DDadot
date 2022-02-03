@@ -6,7 +6,7 @@ class PostModel{
     required this.town,
     this.images = defaultImages,
     this.text = "",
-    this.chatNum = 0,
+    this.commentNum = 0,
     this.likeNum = 0});
 
   final String nickName;
@@ -16,7 +16,7 @@ class PostModel{
   final String town;
   final String text;
   int likeNum;
-  int chatNum;
+  int commentNum;
   List<String> images;
   static const List<String> defaultImages = [];
 }
