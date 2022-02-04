@@ -49,6 +49,7 @@ class MainScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             FloatingActionButton.small(
+              heroTag: 'sort',
               onPressed: () {  },
               child: Icon(Icons.sort),
             ),
@@ -56,6 +57,7 @@ class MainScreen extends StatelessWidget {
               width: 10.w,
             ),
             FloatingActionButton(
+              heroTag: 'write',
               onPressed: () {
                 Navigator.push(
                     context,

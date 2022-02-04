@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'package:ddadot/screens/my_post_screen.dart';
+import 'package:ddadot/screens/bookmark_screen.dart';
+
 enum DRAWER_ITEMS{
   PROFILE,
   HOME,
   BOOKMARK,
   MY_POST,
-  ALARM,
+  NOTIFICATION,
   SETTINGS,
   MAX
 }
@@ -31,32 +34,33 @@ class RightDrawer extends StatelessWidget {
 
   List<DrawerItemModel> drawerList= [
     DrawerItemModel("홈",Icons.home,DRAWER_ITEMS.HOME),
-    DrawerItemModel("북마크",Icons.bookmark,DRAWER_ITEMS.HOME),
-    DrawerItemModel("내가 작성한 글",Icons.library_books,DRAWER_ITEMS.HOME),
-    DrawerItemModel("알림",Icons.notifications,DRAWER_ITEMS.ALARM),
+    DrawerItemModel("북마크",Icons.bookmark,DRAWER_ITEMS.BOOKMARK),
+    DrawerItemModel("내가 작성한 글",Icons.library_books,DRAWER_ITEMS.MY_POST),
+    DrawerItemModel("알림",Icons.notifications,DRAWER_ITEMS.NOTIFICATION),
     DrawerItemModel("설정",Icons.settings,DRAWER_ITEMS.SETTINGS),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 180.w,
-      child: Drawer(
-        child: ListView.builder(
-          padding: const EdgeInsets.all(0),
-          itemCount: DRAWER_ITEMS.MAX.index,
-          itemBuilder: (BuildContext context, int index) {
-            if (index == 0) return _getHeader(context);
-            return _getListItem(index - 1);
-          },
-        ),
-      )
+        width: 180.w,
+        child: Drawer(
+          child: ListView.builder(
+            padding: const EdgeInsets.all(0),
+            itemCount: DRAWER_ITEMS.MAX.index,
+            itemBuilder: (BuildContext context, int index) {
+              if (index == 0) return _getHeader(context);
+              return _getListItem(context, index - 1);
+            },
+          ),
+        )
     );
   }
 
   _getHeader(context){
     return GestureDetector(
       onTap: (){
+        Navigator.pop(context);
         print('Header');
       },
       child: Container(
@@ -84,13 +88,36 @@ class RightDrawer extends StatelessWidget {
     );
   }
 
-  _getListItem(index){
+  _getListItem(context, index){
     return ListTile(
-      leading: Icon(drawerList[index]._icon),
-      title: Text(drawerList[index]._title),
+      leading: Icon(drawerList[index].Icon),
+      title: Text(drawerList[index].Title),
       onTap: (){
-        print(drawerList[index]._title);
+        Navigator.pop(context);
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => _getScreen(drawerList[index].Index))
+        );
+        print(drawerList[index].Title);
       },
     );
+  }
+
+  _getScreen(index){
+    switch(index)
+    {
+      // case DRAWER_ITEMS.HOME:
+      //   return BookmarkScreen();
+      case DRAWER_ITEMS.BOOKMARK:
+        return BookmarkScreen();
+      case DRAWER_ITEMS.MY_POST:
+        return MyPostScreen();
+      // case DRAWER_ITEMS.NOTIFICATION:
+      //   return BookmarkScreen();
+      // case DRAWER_ITEMS.SETTINGS:
+      //   return BookmarkScreen();
+      default:
+        return Scaffold();
+    }
   }
 }
