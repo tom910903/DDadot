@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:ddadot/screens/my_post_screen.dart';
 import 'package:ddadot/screens/bookmark_screen.dart';
+import 'package:ddadot/screens/settings_screen.dart';
 
 enum DRAWER_ITEMS{
   PROFILE,
@@ -114,8 +115,8 @@ class RightDrawer extends StatelessWidget {
         return MyPostScreen();
       // case DRAWER_ITEMS.NOTIFICATION:
       //   return BookmarkScreen();
-      // case DRAWER_ITEMS.SETTINGS:
-      //   return BookmarkScreen();
+      case DRAWER_ITEMS.SETTINGS:
+        return SettingsScreen();
       default:
         return Scaffold();
     }
