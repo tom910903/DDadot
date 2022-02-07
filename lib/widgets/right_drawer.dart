@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:ddadot/screens/my_post_screen.dart';
-import 'package:ddadot/screens/bookmark_screen.dart';
-import 'package:ddadot/screens/settings_screen.dart';
+import 'package:ddadot/common/model/list_item_model.dart';
+
+import 'package:ddadot/screens/post/my_post_screen.dart';
+import 'package:ddadot/screens/post/bookmark_screen.dart';
+import 'package:ddadot/screens/settings/settings_screen.dart';
 
 enum DRAWER_ITEMS{
   PROFILE,
@@ -15,30 +17,14 @@ enum DRAWER_ITEMS{
   MAX
 }
 
-class DrawerItemModel{
-  String _title = "";
-  IconData _icon = Icons.settings;
-  DRAWER_ITEMS _index = DRAWER_ITEMS.MAX;
-
-  get Title => _title;
-  get Icon => _icon;
-  get Index => _index;
-
-  DrawerItemModel(String title, IconData icon, DRAWER_ITEMS index){
-    _title = title;
-    _icon = icon;
-    _index = index;
-  }
-}
-
 class RightDrawer extends StatelessWidget {
 
-  List<DrawerItemModel> drawerList= [
-    DrawerItemModel("홈",Icons.home,DRAWER_ITEMS.HOME),
-    DrawerItemModel("북마크",Icons.bookmark,DRAWER_ITEMS.BOOKMARK),
-    DrawerItemModel("내가 작성한 글",Icons.library_books,DRAWER_ITEMS.MY_POST),
-    DrawerItemModel("알림",Icons.notifications,DRAWER_ITEMS.NOTIFICATION),
-    DrawerItemModel("설정",Icons.settings,DRAWER_ITEMS.SETTINGS),
+  List<ListItemModel> drawerList= [
+    ListItemModel("홈",DRAWER_ITEMS.HOME,icon: Icons.home,),
+    ListItemModel("북마크",DRAWER_ITEMS.BOOKMARK,icon: Icons.bookmark,),
+    ListItemModel("내가 작성한 글",DRAWER_ITEMS.MY_POST,icon: Icons.library_books,),
+    ListItemModel("알림",DRAWER_ITEMS.NOTIFICATION,icon: Icons.notifications,),
+    ListItemModel("설정",DRAWER_ITEMS.SETTINGS,icon: Icons.settings,),
   ];
 
   @override
@@ -67,7 +53,7 @@ class RightDrawer extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.all(12),
         height: 100.h,
-        color: Theme.of(context).colorScheme.primary,
+        color: Theme.of(context).primaryColor,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -91,15 +77,15 @@ class RightDrawer extends StatelessWidget {
 
   _getListItem(context, index){
     return ListTile(
-      leading: Icon(drawerList[index].Icon),
-      title: Text(drawerList[index].Title),
+      leading: Icon(drawerList[index].icon),
+      title: Text(drawerList[index].title),
       onTap: (){
         Navigator.pop(context);
         Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => _getScreen(drawerList[index].Index))
+            MaterialPageRoute(builder: (context) => _getScreen(drawerList[index].index))
         );
-        print(drawerList[index].Title);
+        print(drawerList[index].title);
       },
     );
   }

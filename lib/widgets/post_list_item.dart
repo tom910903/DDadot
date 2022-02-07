@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:page_view_indicators/circle_page_indicator.dart';
 
-import 'package:ddadot/utils/utils.dart';
+import 'package:ddadot/common/utils/utils.dart';
 import 'package:ddadot/model/post_madel.dart';
-import 'package:ddadot/screens/comment_screen.dart';
+import 'package:ddadot/screens/post/comment_screen.dart';
 
 class PostListItem extends StatefulWidget {
   PostListItem({required this.postModel});

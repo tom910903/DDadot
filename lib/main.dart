@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:ddadot/screens/login_screen.dart';
-import 'package:ddadot/screens/main_screen.dart';
+import 'package:ddadot/screens/login/login_screen.dart';
+import 'package:ddadot/screens/post/main_screen.dart';
 
 late SharedPreferences prefs;
 late Widget _firstScreen = LoginScreen();
@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
               appBarTheme: AppBarTheme(
                 backgroundColor: Colors.deepPurple,
               ),
-            primaryColor: Colors.purple,
+            primaryColor: Colors.deepPurple,
             brightness: Brightness.dark,
           ),
           themeMode: ThemeMode.dark, // TEXT CODE

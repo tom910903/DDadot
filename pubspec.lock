@@ -83,13 +83,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_kakao_login:
-    dependency: "direct main"
-    description:
-      name: flutter_kakao_login
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "3.4.0"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -104,13 +97,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "5.1.0"
-  flutter_signin_button:
-    dependency: "direct main"
-    description:
-      name: flutter_signin_button
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -121,15 +107,8 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  font_awesome_flutter:
-    dependency: transitive
-    description:
-      name: font_awesome_flutter
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "9.2.0"
   group_list_view:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: group_list_view
       url: "https://pub.dartlang.org"
@@ -164,7 +143,7 @@ packages:
     source: hosted
     version: "1.7.0"
   page_view_indicators:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: page_view_indicators
       url: "https://pub.dartlang.org"

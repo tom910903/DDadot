@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:group_list_view/group_list_view.dart';
 
+import 'package:ddadot/common/model/list_item_model.dart';
+
 
 enum SETTINGS_ITEMS{
   DARKMODE,
@@ -15,22 +17,6 @@ enum SETTINGS_ITEMS{
   MAX
 }
 
-class SettingsItemModel{
-  String _title = "";
-  String _subtext = "";
-  SETTINGS_ITEMS _index = SETTINGS_ITEMS.MAX;
-
-  get Title => _title;
-  get SubText => _subtext;
-  get Index => _index;
-
-  SettingsItemModel(String title, SETTINGS_ITEMS index, {String subText =""}){
-    _title = title;
-    _subtext = subText;
-    _index = index;
-  }
-}
-
 class SettingsScreen extends StatefulWidget {
 
   @override
@@ -38,19 +24,19 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  List<SettingsItemModel> appSettingList= [
-    SettingsItemModel("다크 모드", SETTINGS_ITEMS.DARKMODE, subText: "기기 설정 따름"),
-    SettingsItemModel("알림 설정",SETTINGS_ITEMS.NOTIFICATION),
+  List<ListItemModel> appSettingList= [
+    ListItemModel("다크 모드", SETTINGS_ITEMS.DARKMODE, subText: "기기 설정 따름"),
+    ListItemModel("알림 설정",SETTINGS_ITEMS.NOTIFICATION),
     ];
-  List<SettingsItemModel> helpList= [
-    SettingsItemModel("공지 사항",SETTINGS_ITEMS.NOTICE),
-    SettingsItemModel("도움말",SETTINGS_ITEMS.HELP),
-    SettingsItemModel("고객센터",SETTINGS_ITEMS.SUPPORT),
+  List<ListItemModel> helpList= [
+    ListItemModel("공지 사항",SETTINGS_ITEMS.NOTICE),
+    ListItemModel("도움말",SETTINGS_ITEMS.HELP),
+    ListItemModel("고객센터",SETTINGS_ITEMS.SUPPORT),
   ];
-  List<SettingsItemModel> infoList= [
-    SettingsItemModel("이용 약관",SETTINGS_ITEMS.TOS,),
-    SettingsItemModel("개인정보 취급 방침",SETTINGS_ITEMS.PRIVACY_POLICY),
-    SettingsItemModel("버전",SETTINGS_ITEMS.VERSION,subText: "V0.0.1"),
+  List<ListItemModel> infoList= [
+    ListItemModel("이용 약관",SETTINGS_ITEMS.TOS,),
+    ListItemModel("개인정보 취급 방침",SETTINGS_ITEMS.PRIVACY_POLICY),
+    ListItemModel("버전",SETTINGS_ITEMS.VERSION,subText: "V0.0.1"),
   ];
 
   late Map<String, List> _elements;
@@ -91,18 +77,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   Widget _itemBuilder(BuildContext context, IndexPath index) {
-    List<SettingsItemModel> items = _elements.values.toList().cast()[index.section];
+    List<ListItemModel> items = _elements.values.toList().cast()[index.section];
     return ListTile(
       onTap: (){
-        print(items[index.index].Index);
+        print(items[index.index].index);
       },
       title: Text(
-        items[index.index].Title,
+        items[index.index].title,
       ),
       trailing: Visibility(
-        visible: !items[index.index].SubText.toString().isEmpty,
+        visible: !items[index.index].subText.isEmpty,
         child: Text(
-          items[index.index].SubText,
+          items[index.index].subText,
         ),
       ),
     );

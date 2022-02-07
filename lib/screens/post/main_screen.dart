@@ -1,10 +1,10 @@
-import 'package:ddadot/screens/comment_screen.dart';
+import 'package:ddadot/screens/post/comment_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:ddadot/widgets/right_drawer.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:ddadot/screens/post_list_screen.dart';
-import 'package:ddadot/screens/write_post_screen.dart';
+import 'package:ddadot/screens/post/post_list_screen.dart';
+import 'package:ddadot/screens/post/write_post_screen.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({Key? key}) : super(key: key);
