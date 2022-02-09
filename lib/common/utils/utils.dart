@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class Utils{
   static bool hasTextOverflow(
@@ -14,5 +15,9 @@ class Utils{
       textDirection: TextDirection.ltr,
     )..layout(minWidth: minWidth, maxWidth: maxWidth);
     return textPainter.didExceedMaxLines;
+  }
+
+  static Future<String> loadTextFile(String filePath) async {
+    return await rootBundle.loadString(filePath);
   }
 }

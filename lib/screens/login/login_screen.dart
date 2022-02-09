@@ -24,20 +24,20 @@ class LoginScreen extends StatelessWidget {
             LoginButton(
               onPressed: (){},
               text: '구글 로그인',
-              iconPath: 'images/logos/google.png',
+              iconPath: 'assets/images/logos/google.png',
               backgroundColor: Colors.blueAccent,
               textColor: Colors.white,
             ),
             LoginButton(
               onPressed: (){},
               text: '카카오로 로그인',
-              iconPath: 'images/logos/kakao.png',
+              iconPath: 'assets/images/logos/kakao.png',
               backgroundColor: Colors.yellow,
             ),
             LoginButton(
               onPressed: (){},
               text: '네이버로 로그인',
-              iconPath: 'images/logos/naver.png',
+              iconPath: 'assets/images/logos/naver.png',
               backgroundColor: Colors.green,
               textColor: Colors.white,
             )

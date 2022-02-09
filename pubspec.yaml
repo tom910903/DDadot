@@ -67,8 +67,9 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - images/logos/
-    - images/pictures/
+    - assets/images/logos/
+    - assets/images/pictures/
+    - assets/texts/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -119,11 +120,11 @@ flutter_native_splash:
 
   # The image parameter allows you to specify an image used in the splash screen.  It must be a
   # png file and should be sized for 4x pixel density.
-  image: images/logos/kakao.png
+  image: assets/images/logos/kakao.png
 
   # This property allows you to specify an image used as branding in the splash screen. It must be
   # a png file. Currently, it is only supported for Android and iOS.
-  branding: images/logos/kakao.png
+  branding: assets/images/logos/kakao.png
 
   # Specify your branding image for dark mode.
   #branding_dark: assets/dart_dark.png

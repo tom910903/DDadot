@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:group_list_view/group_list_view.dart';
 
 import 'package:ddadot/common/model/list_item_model.dart';
+import 'package:ddadot/screens/settings/text_scroll_screen.dart';
 
 
 enum SETTINGS_ITEMS{
@@ -81,6 +82,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return ListTile(
       onTap: (){
         print(items[index.index].index);
+
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => _getScreen(items[index.index].index))
+        );
       },
       title: Text(
         items[index.index].title,
@@ -92,5 +98,23 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ),
       ),
     );
+  }
+
+  _getScreen(index){
+    switch(index)
+    {
+      // case SETTINGS_ITEMS.DARKMODE:
+      // case SETTINGS_ITEMS.NOTIFICATION:
+      // case SETTINGS_ITEMS.NOTICE:
+      // case SETTINGS_ITEMS.SUPPORT:
+      // case SETTINGS_ITEMS.HELP:
+      case SETTINGS_ITEMS.TOS:
+        return TextScrollScreen(title: '이용 약관', filePath: 'assets/texts/tos.txt');
+      case SETTINGS_ITEMS.PRIVACY_POLICY:
+        return TextScrollScreen(title: '개인정보 취급 방침', filePath: 'assets/texts/privacy_policy.txt');
+      // case SETTINGS_ITEMS.VERSION:
+      default:
+        return Scaffold();
+    }
   }
 }
