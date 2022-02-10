@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:group_list_view/group_list_view.dart';
 
 import 'package:ddadot/common/model/list_item_model.dart';
+import 'package:ddadot/screens/settings/notice_list_screen.dart';
 import 'package:ddadot/screens/settings/text_scroll_screen.dart';
 
 
@@ -105,7 +106,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
     {
       // case SETTINGS_ITEMS.DARKMODE:
       // case SETTINGS_ITEMS.NOTIFICATION:
-      // case SETTINGS_ITEMS.NOTICE:
+      case SETTINGS_ITEMS.NOTICE:
+        return NoticeListScreen();
       // case SETTINGS_ITEMS.SUPPORT:
       // case SETTINGS_ITEMS.HELP:
       case SETTINGS_ITEMS.TOS:
