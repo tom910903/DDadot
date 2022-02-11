@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:ddadot/screens/settings/notice_detail_screen.dart';
+
 class NoticeModel{
   String _title = "";
   String _date = "";
@@ -59,12 +61,18 @@ class NoticeListScreen extends StatelessWidget {
 
   Widget _getItem(BuildContext context, int index) {
     return ListTile(
-        title: Text(noticeModel[index].Title,
-          style: TextStyle(
-              color: noticeModel[index].TextColor
-          ),
+      title: Text(noticeModel[index].Title,
+        style: TextStyle(
+            color: noticeModel[index].TextColor
         ),
-        subtitle: Text(noticeModel[index].Date,)
+      ),
+      subtitle: Text(noticeModel[index].Date,),
+
+      onTap: (){
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => NoticeDetailScreen()));
+      },
     );
   }
 }
