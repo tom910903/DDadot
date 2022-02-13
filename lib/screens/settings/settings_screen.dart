@@ -4,8 +4,8 @@ import 'package:group_list_view/group_list_view.dart';
 import 'package:ddadot/common/model/list_item_model.dart';
 import 'package:ddadot/screens/settings/notice_list_screen.dart';
 import 'package:ddadot/screens/settings/notification_setting_screen.dart';
+import 'package:ddadot/screens/settings/help_screen.dart';
 import 'package:ddadot/screens/settings/text_scroll_screen.dart';
-
 
 enum SETTINGS_ITEMS{
   DARKMODE,
@@ -110,7 +110,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
       case SETTINGS_ITEMS.NOTICE:
         return NoticeListScreen();
       // case SETTINGS_ITEMS.SUPPORT:
-      // case SETTINGS_ITEMS.HELP:
+      case SETTINGS_ITEMS.HELP:
+        return HelpScreen();
       case SETTINGS_ITEMS.TOS:
         return TextScrollScreen(title: '이용 약관', filePath: 'assets/texts/tos.txt');
       case SETTINGS_ITEMS.PRIVACY_POLICY:

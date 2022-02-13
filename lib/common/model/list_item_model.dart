@@ -5,6 +5,7 @@ class ListItemModel{
   String subText;
   IconData icon;
   dynamic index;
+  bool isExpanded;
 
-  ListItemModel(this.title, this.index, {this.subText = "", this.icon = Icons.home});
+  ListItemModel(this.title, this.index, {this.subText = "", this.icon = Icons.home, this.isExpanded = false});
 }
