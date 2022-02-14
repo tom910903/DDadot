@@ -5,6 +5,7 @@ import 'package:ddadot/common/model/list_item_model.dart';
 import 'package:ddadot/screens/settings/notice_list_screen.dart';
 import 'package:ddadot/screens/settings/notification_setting_screen.dart';
 import 'package:ddadot/screens/settings/help_screen.dart';
+import 'package:ddadot/screens/settings/support_screen.dart';
 import 'package:ddadot/screens/settings/text_scroll_screen.dart';
 
 enum SETTINGS_ITEMS{
@@ -109,7 +110,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
         return NotificationSettingScreen();
       case SETTINGS_ITEMS.NOTICE:
         return NoticeListScreen();
-      // case SETTINGS_ITEMS.SUPPORT:
+      case SETTINGS_ITEMS.SUPPORT:
+        return SupportScreen();
       case SETTINGS_ITEMS.HELP:
         return HelpScreen();
       case SETTINGS_ITEMS.TOS:
