@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:group_list_view/group_list_view.dart';
 
+import 'package:ddadot/utils/app_model.dart';
 import 'package:ddadot/common/model/list_item_model.dart';
 import 'package:ddadot/screens/settings/notice_list_screen.dart';
 import 'package:ddadot/screens/settings/notification_setting_screen.dart';
@@ -30,7 +32,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   List<ListItemModel> appSettingList= [
     ListItemModel("다크 모드", SETTINGS_ITEMS.DARKMODE, subText: "기기 설정 따름"),
     ListItemModel("알림 설정",SETTINGS_ITEMS.NOTIFICATION),
-    ];
+  ];
   List<ListItemModel> helpList= [
     ListItemModel("공지 사항",SETTINGS_ITEMS.NOTICE),
     ListItemModel("도움말",SETTINGS_ITEMS.HELP),
@@ -84,7 +86,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return ListTile(
       onTap: (){
         print(items[index.index].index);
-
+        if(items[index.index].index == SETTINGS_ITEMS.DARKMODE)
+        {
+          _showDarkModeDialog(context);
+          return;
+        }
+        else if(items[index.index].index == SETTINGS_ITEMS.VERSION){
+          return;
+        }
         Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => _getScreen(items[index.index].index))
@@ -105,7 +114,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
   _getScreen(index){
     switch(index)
     {
-      // case SETTINGS_ITEMS.DARKMODE:
       case SETTINGS_ITEMS.NOTIFICATION:
         return NotificationSettingScreen();
       case SETTINGS_ITEMS.NOTICE:
@@ -118,9 +126,47 @@ class _SettingsScreenState extends State<SettingsScreen> {
         return TextScrollScreen(title: '이용 약관', filePath: 'assets/texts/tos.txt');
       case SETTINGS_ITEMS.PRIVACY_POLICY:
         return TextScrollScreen(title: '개인정보 취급 방침', filePath: 'assets/texts/privacy_policy.txt');
-      // case SETTINGS_ITEMS.VERSION:
       default:
         return Scaffold();
     }
+  }
+
+  _showDarkModeDialog(BuildContext context){
+    AppModel appModel = AppModel();
+    showCupertinoModalPopup<void>(
+      context: context,
+      builder: (BuildContext context) => CupertinoActionSheet(
+        actions: <CupertinoActionSheetAction>[
+          CupertinoActionSheetAction(
+            child: const Text('기기 설정 따름'),
+            onPressed: () {
+              if(ThemeMode.system == Brightness.dark)
+              {
+                appModel.darkMode = true;
+              }
+              else
+              {
+                appModel.darkMode = false;
+              }
+              Navigator.pop(context);
+            },
+          ),
+          CupertinoActionSheetAction(
+            child: const Text('설정'),
+            onPressed: () {
+              appModel.darkMode = true;
+              Navigator.pop(context);
+            },
+          ),
+          CupertinoActionSheetAction(
+            child: const Text('해제'),
+            onPressed: () {
+              appModel.darkMode = false;
+              Navigator.pop(context);
+            },
+          )
+        ],
+      ),
+    );
   }
 }
