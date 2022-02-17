@@ -18,18 +18,22 @@ class LoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 40.h,
+        height: 50.h,
         width: double.infinity,
         padding: EdgeInsets.fromLTRB(12, 5, 12, 5),
         margin: EdgeInsets.all(5),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(10)),
-          color: backgroundColor,
-        ),
+        color: backgroundColor,
+        // decoration: BoxDecoration(
+        //     borderRadius: BorderRadius.all(Radius.circular(10)),
+        //   color: backgroundColor,
+        // ),
         child: Stack(
           children: [
-            Image.asset(iconPath,
-              fit: BoxFit.fill,
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20,8,20,8),
+              child: Image.asset(iconPath,
+                fit: BoxFit.fill,
+              ),
             ),
             Center(
               child: Text(text,
