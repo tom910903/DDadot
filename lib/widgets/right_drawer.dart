@@ -4,12 +4,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ddadot/common/model/list_item_model.dart';
 
 import 'package:ddadot/screens/post/my_post_screen.dart';
+import 'package:ddadot/screens/notification/notification_list_screen.dart';
 import 'package:ddadot/screens/post/bookmark_screen.dart';
 import 'package:ddadot/screens/settings/settings_screen.dart';
 
 enum DRAWER_ITEMS{
   PROFILE,
-  HOME,
   BOOKMARK,
   MY_POST,
   NOTIFICATION,
@@ -20,7 +20,6 @@ enum DRAWER_ITEMS{
 class RightDrawer extends StatelessWidget {
 
   List<ListItemModel> drawerList= [
-    ListItemModel("홈",DRAWER_ITEMS.HOME,icon: Icons.home,),
     ListItemModel("북마크",DRAWER_ITEMS.BOOKMARK,icon: Icons.bookmark,),
     ListItemModel("내가 작성한 글",DRAWER_ITEMS.MY_POST,icon: Icons.library_books,),
     ListItemModel("알림",DRAWER_ITEMS.NOTIFICATION,icon: Icons.notifications,),
@@ -93,14 +92,12 @@ class RightDrawer extends StatelessWidget {
   _getScreen(index){
     switch(index)
     {
-      // case DRAWER_ITEMS.HOME:
-      //   return BookmarkScreen();
       case DRAWER_ITEMS.BOOKMARK:
         return BookmarkScreen();
       case DRAWER_ITEMS.MY_POST:
         return MyPostScreen();
-      // case DRAWER_ITEMS.NOTIFICATION:
-      //   return BookmarkScreen();
+      case DRAWER_ITEMS.NOTIFICATION:
+        return NotificationListScreen();
       case DRAWER_ITEMS.SETTINGS:
         return SettingsScreen();
       default:
