@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:ddadot/common/model/list_item_model.dart';
 
+import 'package:ddadot/screens/settings/profile_screen.dart';
 import 'package:ddadot/screens/post/my_post_screen.dart';
 import 'package:ddadot/screens/notification/notification_list_screen.dart';
 import 'package:ddadot/screens/post/bookmark_screen.dart';
@@ -47,6 +48,10 @@ class RightDrawer extends StatelessWidget {
     return GestureDetector(
       onTap: (){
         Navigator.pop(context);
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => _getScreen(DRAWER_ITEMS.PROFILE))
+        );
         print('Header');
       },
       child: Container(
@@ -92,6 +97,8 @@ class RightDrawer extends StatelessWidget {
   _getScreen(index){
     switch(index)
     {
+      case DRAWER_ITEMS.PROFILE:
+        return ProfileScreen();
       case DRAWER_ITEMS.BOOKMARK:
         return BookmarkScreen();
       case DRAWER_ITEMS.MY_POST:
