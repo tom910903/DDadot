@@ -3,7 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginButton extends StatelessWidget {
-  final Function onPressed;
+  final VoidCallback? onPressed;
   final Color backgroundColor;
   final String text;
   final String iconPath;
@@ -27,25 +27,28 @@ class LoginButton extends StatelessWidget {
         //     borderRadius: BorderRadius.all(Radius.circular(10)),
         //   color: backgroundColor,
         // ),
-        child: Stack(
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20,8,20,8),
-              child: Image.asset(iconPath,
-                fit: BoxFit.fill,
-              ),
-            ),
-            Center(
-              child: Text(text,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: textColor,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 13.sp,
+        child: GestureDetector(
+          onTap: onPressed,
+          child: Stack(
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20,8,20,8),
+                child: Image.asset(iconPath,
+                  fit: BoxFit.fill,
                 ),
               ),
-            )
-          ],
+              Center(
+                child: Text(text,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: textColor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 13.sp,
+                  ),
+                ),
+              )
+            ],
+          ),
         )
     );
   }

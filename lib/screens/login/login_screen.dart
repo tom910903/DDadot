@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ddadot/common/utils/palette.dart';
 
 import 'package:ddadot/common/widgets/login_button.dart';
+import 'package:ddadot/screens/login/agreement_screen.dart';
 
 class LoginScreen extends StatelessWidget {
 
@@ -55,9 +56,9 @@ class LoginScreen extends StatelessWidget {
                         Expanded(child: Divider(thickness: 1,)),
                         Text('   3초만에 간편 로그인   ',
                           style: TextStyle(
-                            color: Colors.grey,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15.sp
+                              color: Colors.grey,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15.sp
                           ),
                         ),
                         Expanded(child: Divider(thickness: 1,)),
@@ -72,14 +73,24 @@ class LoginScreen extends StatelessWidget {
                           backgroundColor: Palette.kakaoBackground,
                         ),
                         LoginButton(
-                          onPressed: (){},
+                          onPressed: (){
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => AgreementScreen(title: "개인정보 취급 방침", filePath: 'assets/texts/privacy_policy.txt'))
+                            );
+                          },
                           text: '네이버로 로그인',
                           iconPath: 'assets/images/logos/naver.png',
                           backgroundColor: Palette.naverBackground,
                           textColor: Colors.white,
                         ),
                         LoginButton(
-                          onPressed: (){},
+                          onPressed: (){
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => AgreementScreen(title: "이용 약관", filePath: 'assets/texts/tos.txt'))
+                            );
+                          },
                           text: '구글 로그인',
                           iconPath: 'assets/images/logos/google.png',
                           backgroundColor: Palette.googleBackground,

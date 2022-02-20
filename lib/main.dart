@@ -18,8 +18,8 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   prefs = await SharedPreferences.getInstance();
 
-  if(prefs.getBool("autoLogin") ?? true){    //TEST CODE
-  // if(prefs.getBool("autoLogin") ?? false){
+  // if(prefs.getBool("autoLogin") ?? true){    //TEST CODE
+  if(prefs.getBool("autoLogin") ?? false){
     _firstScreen = MainScreen();
   }
 
